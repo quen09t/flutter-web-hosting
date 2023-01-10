@@ -6,6 +6,12 @@ import 'package:web_app/l10n/l10n.dart';
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
 
+  static Route<CounterPage> route() {
+    return MaterialPageRoute<CounterPage>(
+      builder: (_) => const CounterPage(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
