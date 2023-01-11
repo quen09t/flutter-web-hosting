@@ -40,6 +40,12 @@ class App extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, '/sign-in');
               }),
             ],
+            children: const [
+              Text(
+                'toto',
+                style: TextStyle(color: Colors.red),
+              )
+            ],
           );
         },
       },
