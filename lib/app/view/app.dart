@@ -1,6 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:web_app/counter/counter.dart';
 import 'package:web_app/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +7,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final providers = [EmailAuthProvider()];
+    // final providers = [EmailAuthProvider()];
 
     return MaterialApp(
       theme: ThemeData(
@@ -19,36 +18,37 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      initialRoute:
-          FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/profile',
-      routes: {
-        '/sign-in': (context) {
-          return SignInScreen(
-            providers: providers,
-            actions: [
-              AuthStateChangeAction<SignedIn>((context, state) {
-                Navigator.pushReplacementNamed(context, '/profile');
-              }),
-            ],
-          );
-        },
-        '/profile': (context) {
-          return ProfileScreen(
-            providers: providers,
-            actions: [
-              SignedOutAction((context) {
-                Navigator.pushReplacementNamed(context, '/sign-in');
-              }),
-            ],
-            children: const [
-              Text(
-                'toto',
-                style: TextStyle(color: Colors.red),
-              )
-            ],
-          );
-        },
-      },
+      home: const CounterPage(),
+      // initialRoute:
+      //     FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/profile',
+      // routes: {
+      //   '/sign-in': (context) {
+      //     return SignInScreen(
+      //       providers: providers,
+      //       actions: [
+      //         AuthStateChangeAction<SignedIn>((context, state) {
+      //           Navigator.pushReplacementNamed(context, '/profile');
+      //         }),
+      //       ],
+      //     );
+      //   },
+      //   '/profile': (context) {
+      //     return ProfileScreen(
+      //       providers: providers,
+      //       actions: [
+      //         SignedOutAction((context) {
+      //           Navigator.pushReplacementNamed(context, '/sign-in');
+      //         }),
+      //       ],
+      //       children: const [
+      //         Text(
+      //           'toto',
+      //           style: TextStyle(color: Colors.red),
+      //         )
+      //       ],
+      //     );
+      //   },
+      // },
     );
   }
 }

@@ -19,9 +19,9 @@ jobs:
     needs: [semantic-pull-request, analyze]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: 📚 Git Checkout
         uses: actions/checkout@v3
-      - name: Install Flutter
+      - name: 🐦 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
