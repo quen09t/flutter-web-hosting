@@ -11,7 +11,7 @@ dependencies:
   bloc: ^8.1.0
   firebase_auth: ^4.2.5
   firebase_core: ^2.4.1
-  firebase_ui_auth: ^1.1.7
+  firebase_ui_auth: ^1.2.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
